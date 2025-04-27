@@ -1,0 +1,216 @@
+@font-face {
+  font-family: 'Integral CF';
+  src: url('IntegralCF-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #ffffff;
+  --text-color: #ffffff;
+  --accent-color: #3498db;
+  --gold-color: #ee801934;
+  --dark-gold: #a86a19;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(77, 45, 15, 0.1);
+  }
+  50% {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 40px rgba(77, 45, 15, 0.3);
+  }
+  100% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(77, 45, 15, 0.1);
+  }
+}
+
+body {
+  user-select: none;
+  margin: 0;
+  min-height: 100vh;
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  overflow: hidden;
+  font-family: 'Integral CF', sans-serif;
+  color: var(--text-color);
+  position: relative;
+}
+
+header {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 10;
+  animation: fadeIn 1.2s ease-out forwards;
+  width: 100%;
+}
+
+header h2 {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin: 0 auto;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  letter-spacing: 1px;
+}
+
+.ring-wrapper {
+  transform-style: preserve-3d;
+  transform: rotateX(-25deg) rotateY(-32deg) rotateZ(-14deg) scaleX(-1);
+  margin-bottom: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ring {
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -400px;
+  animation: spin 25s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.char {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  font-size: 8rem;
+  font-weight: 400;
+  letter-spacing: 0.3rem;
+  color: rgba(212, 175, 55, 0.12);
+  text-shadow: 0 3px 15px rgba(212, 175, 55, 0.25);
+  will-change: transform;
+}
+
+.app-preview {
+  width: 90%;
+  max-width: 1200px;
+  height: 650px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 1px solid rgba(77, 45, 15, 0.3);
+  transition: transform 0.3s ease-out;
+  position: relative;
+  z-index: 5;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.app-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.download-btn {
+  margin-top: 40px;
+  position: relative;
+  z-index: 10;
+  animation: fadeIn 1.8s ease-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.download-btn a {
+  display: inline-block;
+  padding: 15px 40px;
+  background: transparent;
+  color: orange;
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 2px solid orange;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+}
+
+.download-btn a:hover {
+  background: var(--gold-color);
+  color: black;
+  box-shadow: 0 0 20px rgba(255, 123, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+.download-btn a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 143, 39, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.download-btn a:hover::before {
+  left: 100%;
+}
+
+@keyframes spin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+} 
+
+@media (max-width: 768px) {
+  header h2 {
+    font-size: 2rem;
+  }
+  
+  .app-preview {
+    height: 400px;
+  }
+  
+  .download-btn a {
+    font-size: 1rem;
+    padding: 12px 30px;
+  }
+}
