@@ -1,9 +1,12 @@
+import { useState } from 'react'
+import Modal from '../../components/Modal/Modal'
 import './Download.css'
 
 function Download() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const handleDownload = () => {
-    // Здесь будет логика загрузки лаунчера
-    alert('Функция загрузки будет доступна в ближайшее время!')
+    setIsModalOpen(true)
   }
 
   return (
@@ -31,6 +34,17 @@ function Download() {
           </div>
         </div>
       </section>
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <div className="modal-text">
+          <h2>Скоро будет доступно!</h2>
+          <p>Мы усердно работаем над созданием лучшего лаунчера для Minecraft. В ближайшее время мы выпустим первую версию.</p>
+          <p>Следите за обновлениями на нашем сайте, чтобы быть первым, кто попробует CMLauncher!</p>
+        </div>
+        <div className="modal-image">
+          <img src="/coming-soon.svg" alt="Скоро будет доступно" />
+        </div>
+      </Modal>
     </div>
   )
 }
