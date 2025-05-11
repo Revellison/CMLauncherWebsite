@@ -1,89 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>CmLauncher</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <h2>Coming Soon</h2>
-  </header>
-  
-  <div class="app-preview" id="app-preview">
-    <iframe src="./render/renderer/index.html" id="app-iframe"></iframe>
-  </div>
-  
-  <div class="download-btn">
-    <a href="#" id="download-link">Скачать CmLauncher</a>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const appPreview = document.getElementById('app-preview');
-      const maxMovement = 15;
-  
-      let currentRotateX = 5;
-      let currentRotateY = 0;
-      let targetRotateX = 5;
-      let targetRotateY = 0;
-      
-      function updateTransform() {
-        currentRotateX += (targetRotateX - currentRotateX) * 0.05;
-        currentRotateY += (targetRotateY - currentRotateY) * 0.05;
-        
-        appPreview.style.transform = `
-          perspective(1000px) 
-          rotateX(${currentRotateX}deg) 
-          rotateY(${currentRotateY}deg)
-        `;
-        
-        requestAnimationFrame(updateTransform);
-      }
-
-      updateTransform();
-      
-      document.addEventListener('mousemove', function(e) {
-        const mouseX = e.clientX / window.innerWidth - 0.5;
-        const mouseY = e.clientY / window.innerHeight - 0.5;
-        
-        targetRotateX = 5 - mouseY * maxMovement;
-        targetRotateY = mouseX * maxMovement;
-      });
-
-      const downloadLink = document.getElementById('download-link');
-      downloadLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        alert('нет');
-      });
-
-      const ringWrapper = document.querySelector('.ring-wrapper');
-      if (ringWrapper) {
-        let ringX = -32;
-        let ringY = -25;
-        let targetRingX = -32;
-        let targetRingY = -25;
-        
-        function updateRingPosition() {
-          ringX += (targetRingX - ringX) * 0.02;
-          ringY += (targetRingY - ringY) * 0.02;
-          
-          ringWrapper.style.transform = `rotateX(${ringY}deg) rotateY(${ringX}deg) rotateZ(-14deg) scaleX(-1)`;
-          
-          requestAnimationFrame(updateRingPosition);
-        }
-        
-        updateRingPosition();
-        
-        document.addEventListener('mousemove', function(e) {
-          const mouseX = e.clientX / window.innerWidth - 0.5;
-          const mouseY = e.clientY / window.innerHeight - 0.5;
-          
-          targetRingX = -32 + mouseX * 10;
-          targetRingY = -25 + mouseY * 10;
-        });
-      }
-    });
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMLauncher</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
