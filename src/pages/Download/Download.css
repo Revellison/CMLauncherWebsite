@@ -1,24 +1,43 @@
 .download {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .download-hero {
   text-align: center;
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-  border-radius: 1rem;
-  margin-bottom: 3rem;
+  padding: 6rem 2rem;
+  background: var(--gradient-dark);
+  border-radius: 1.5rem;
+  margin-bottom: 4rem;
   user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.download-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 107, 0, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .download-hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .download-hero p {
-  color: #888;
-  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-size: 1.4rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .download-options {
@@ -29,64 +48,89 @@
 
 .download-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 4rem;
 }
 
 .download-card {
-  background-color: #1a1a1a;
-  padding: 2rem;
-  border-radius: 0.5rem;
+  background: var(--gradient-card);
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
   text-align: center;
   transition: all 0.3s ease;
   user-select: none;
+  border: 1px solid rgba(255, 107, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .download-card:hover {
   transform: translateY(-5px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  border-color: rgba(255, 107, 0, 0.3);
 }
 
 .download-card h3 {
-  color: #ff6b00;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .download-card p {
-  color: #888;
-  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .download-button {
   display: inline-block;
-  padding: 1rem 2rem;
-  background-color: #ff6b00;
-  color: #fff;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  padding: 1.2rem 3rem;
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  border-radius: 0.8rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
   width: 100%;
+  box-shadow: var(--shadow-sm);
 }
 
 .download-button:hover {
-  background-color: #ff8533;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
 }
 
 @media (max-width: 768px) {
   .download-hero {
-    padding: 2rem 1rem;
+    padding: 4rem 1.5rem;
   }
 
   .download-hero h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .download-hero p {
+    font-size: 1.2rem;
   }
 
   .download-options {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
 
   .download-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .download-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .download-card h3 {
+    font-size: 1.5rem;
   }
 } 
