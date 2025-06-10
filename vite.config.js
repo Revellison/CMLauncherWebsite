@@ -18,7 +18,6 @@ export default defineConfig({
     port: 3000,
     host: true,
   },
-  // Добавляем конфигурацию для GitHub Pages с кастомным доменом
   define: {
     'process.env.VITE_BASE_URL': JSON.stringify('https://cmlauncher.ru'),
   }

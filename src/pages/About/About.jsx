@@ -4,10 +4,6 @@ import './About.css'
 const About = () => {
   return (
     <div className="about">
-      <section className="about-hero">
-        <h1>О Лаунчере</h1>
-        <p>Узнайте больше о нашем лаунчере</p>
-      </section>
 
       <div className="about-content">
         <section className="about-section">

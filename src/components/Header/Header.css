@@ -1,11 +1,14 @@
 .header {
-  background: var(--gradient-card);
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 15px;
+  margin-right: 20px;
   padding: 1.5rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   user-select: none;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
 }
 
 .header-container {
@@ -24,7 +27,7 @@
   text-decoration: none;
   transition: all 0.3s ease;
   letter-spacing: -0.02em;
-  background: var(--gradient-primary);
+  background: var(--text-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -60,9 +63,6 @@
   border-radius: 2px;
 }
 
-.nav-link:hover {
-  color: var(--primary-color);
-}
 
 .nav-link:hover::after {
   width: 100%;

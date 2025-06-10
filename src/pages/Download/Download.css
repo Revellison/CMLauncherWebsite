@@ -1,11 +1,15 @@
 .download {
   color: var(--text-primary);
+  min-height: 58vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
 }
 
 .download-hero {
   text-align: center;
   padding: 6rem 2rem;
-  background: var(--gradient-dark);
   border-radius: 1.5rem;
   margin-bottom: 4rem;
   user-select: none;
@@ -41,6 +45,7 @@
 }
 
 .download-options {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -48,30 +53,28 @@
 
 .download-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2.5rem;
-  margin-bottom: 4rem;
+  align-items: center;
 }
 
 .download-card {
-  background: var(--gradient-card);
   padding: 3rem 2rem;
   border-radius: 1.5rem;
   text-align: center;
   transition: all 0.3s ease;
   user-select: none;
-  border: 1px solid rgba(255, 107, 0, 0.1);
+  border: 1px solid #b3b3b338;
   backdrop-filter: blur(10px);
+  animation: scaleIn 0.0s ease-out forwards;
+  opacity: 0;
 }
 
 .download-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
-  border-color: rgba(255, 107, 0, 0.3);
 }
 
 .download-card h3 {
-  color: var(--primary-color);
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
   font-weight: 600;
@@ -79,7 +82,6 @@
 }
 
 .download-card p {
-  color: var(--text-secondary);
   margin-bottom: 2rem;
   font-size: 1.1rem;
   line-height: 1.6;
@@ -96,25 +98,22 @@
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
   width: 100%;
-  box-shadow: var(--shadow-sm);
+  border: none;
+  cursor: pointer;
 }
 
 .download-button:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md), var(--shadow-glow);
+  opacity: 0.9;
+}
+
+.download-button:active {
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
-  .download-hero {
-    padding: 4rem 1.5rem;
-  }
-
-  .download-hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .download-hero p {
-    font-size: 1.2rem;
+  .download {
+    padding: 1rem 0;
   }
 
   .download-options {
@@ -132,5 +131,37 @@
 
   .download-card h3 {
     font-size: 1.5rem;
+  }
+
+  .download-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .download {
+    padding: 0.5rem 0;
+  }
+
+  .download-options {
+    padding: 0 1rem;
+  }
+
+  .download-card {
+    padding: 2rem 1rem;
+  }
+
+  .download-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .download-card p {
+    font-size: 1rem;
+  }
+
+  .download-button {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
   }
 } 

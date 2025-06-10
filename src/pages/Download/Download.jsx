@@ -11,16 +11,11 @@ function Download() {
 
   return (
     <div className="download">
-      <section className="download-hero">
-        <h1>Скачать CMLauncher</h1>
-        <p>Выберите версию для вашей операционной системы</p>
-      </section>
-
       <section className="download-options">
         <div className="download-grid">
           <div className="download-card" style={{ '--animation-order': 0 }}>
             <h3>Windows</h3>
-            <p>Скачайте лаунчер для Windows 7/8/10/11</p>
+            <p>Скачайте лаунчер для Windows 10/11</p>
             <button onClick={handleDownload} className="download-button">
               Скачать для Windows
             </button>
