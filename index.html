@@ -1,13 +1,73 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMLauncher</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button class="theme-toggle" aria-label="Переключить тему">
+        <i class="fa-regular fa-moon theme-toggle-icon"></i>
+    </button>
+
+    <main class="main">
+        <div class="container">
+            <div class="hero">
+                <h1 class="animate-text">CMLauncher</h1>
+                <p class="animate-text delay-1">Официальный лаунчер для игры на сервере CMCraft</p>
+                <button class="download-btn animate-text delay-2">Скачать лаунчер</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="copyright">© 2025 CMLauncher. Все права защищены.  <a  style="color: orange;" href="https://discord.gg/QakNJpNTTj">Дискорд-сервер</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="downloadModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="os-selection">
+                <label class="os-switch">
+                    <input type="radio" name="os" value="windows" checked>
+                    <span class="os-switch-label">
+                        <i class="fa-brands fa-windows os-icon"></i>
+                        Windows
+                    </span>
+                </label>
+                <label class="os-switch">
+                    <input type="radio" name="os" value="linux">
+                    <span class="os-switch-label">
+                        <i class="fa-brands fa-linux os-icon"></i>
+                        Linux
+                    </span>
+                </label>
+            </div>
+
+            <div class="os-description" id="windows-desc">
+                <h3>для Windows</h3>
+                <p>Требования: Windows 10/11</p>
+                <button class="download-os-btn" data-os="windows">Скачать для Windows</button>
+            </div>
+
+            <div class="os-description" id="linux-desc" style="display: none;">
+                <h3>для Linux</h3>
+                <p>Требования: Ubuntu 20.04+, Debian 10+</p>
+                <button class="download-os-btn" data-os="linux">Скачать для Linux</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="background.js"></script>
+</body>
+</html> 
