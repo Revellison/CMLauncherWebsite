@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMLauncher</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Rubik';
+            src: url('src/Rubik.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <button class="theme-toggle" aria-label="Переключить тему">
-        <i class="fa-regular fa-moon theme-toggle-icon"></i>
+        <img src="src/moon-solid.svg" class="theme-toggle-icon moon-icon" alt="Переключить на темную тему">
+        <img src="src/sun-solid.svg" class="theme-toggle-icon sun-icon" alt="Переключить на светлую тему">
     </button>
 
     <main class="main">
@@ -41,14 +46,14 @@
                 <label class="os-switch">
                     <input type="radio" name="os" value="windows" checked>
                     <span class="os-switch-label">
-                        <i class="fa-brands fa-windows os-icon"></i>
+                        <img src="src/windows-brands.svg" class="os-icon" alt="Windows">
                         Windows
                     </span>
                 </label>
                 <label class="os-switch">
                     <input type="radio" name="os" value="linux">
                     <span class="os-switch-label">
-                        <i class="fa-brands fa-linux os-icon"></i>
+                        <img src="src/linux-brands.svg" class="os-icon" alt="Linux">
                         Linux
                     </span>
                 </label>
@@ -57,13 +62,13 @@
             <div class="os-description" id="windows-desc">
                 <h3>для Windows</h3>
                 <p>Требования: Windows 10/11</p>
-                <button class="download-os-btn" data-os="windows">Скачать для Windows</button>
+                <button class="download-os-btn" style="background-color: #666 !important;" data-os="windows">Загрузка недоступна</button>
             </div>
 
             <div class="os-description" id="linux-desc" style="display: none;">
                 <h3>для Linux</h3>
                 <p>Требования: Ubuntu 20.04+, Debian 10+</p>
-                <button class="download-os-btn" data-os="linux">Скачать для Linux</button>
+                <button class="download-os-btn" style="background-color: #666 !important;" data-os="windows">Загрузка недоступна</button>
             </div>
         </div>
     </div>

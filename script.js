@@ -7,57 +7,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const linuxDesc = document.getElementById('linux-desc');
     const downloadOsBtns = document.querySelectorAll('.download-os-btn');
     const themeToggle = document.querySelector('.theme-toggle');
-    const themeIcon = document.querySelector('.theme-toggle-icon');
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
 
-    // Функция для переключения темы
     const toggleTheme = () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', newTheme);
         
-        // Меняем иконку
-        themeIcon.className = `fa-regular ${newTheme === 'light' ? 'fa-moon' : 'fa-sun'} theme-toggle-icon`;
+        // Переключаем видимость иконок
+        if (newTheme === 'dark') {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        } else {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        }
         
         localStorage.setItem('theme', newTheme);
     };
 
-    // Инициализация темы
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     
-    // Устанавливаем начальную иконку
-    themeIcon.className = `fa-regular ${savedTheme === 'light' ? 'fa-moon' : 'fa-sun'} theme-toggle-icon`;
+    // Устанавливаем начальное состояние иконок
+    if (savedTheme === 'dark') {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+    } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+    }
 
-    // Обработчик переключения темы
     themeToggle.addEventListener('click', toggleTheme);
 
-    // Открытие модального окна
     downloadBtn.addEventListener('click', () => {
         modal.style.display = 'block';
-        // Добавляем класс для анимации после отображения
         setTimeout(() => {
             modal.classList.add('show');
         }, 10);
     });
 
-    // Закрытие модального окна
     const closeModalWindow = () => {
         modal.classList.remove('show');
         setTimeout(() => {
             modal.style.display = 'none';
-        }, 300); // Время должно совпадать с длительностью анимации в CSS
+        }, 300);
     };
 
     closeModal.addEventListener('click', closeModalWindow);
-
-    // Закрытие модального окна при клике вне его
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
             closeModalWindow();
         }
     });
 
-    // Переключение между описаниями ОС
     osRadios.forEach(radio => {
         radio.addEventListener('change', (e) => {
             if (e.target.value === 'windows') {
@@ -70,11 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Обработка нажатия на кнопки скачивания
     downloadOsBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const os = e.target.dataset.os;
-            // Здесь будет логика скачивания для конкретной ОС
             closeModalWindow();
         });
     });
